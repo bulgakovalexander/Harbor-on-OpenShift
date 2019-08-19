@@ -37,17 +37,25 @@ items:
           release: harbor
       spec:
         containers:
-        - args:
+        - name: clair
+          args:
           - -insecure-tls
           - -config
           - /config/config.yaml
+          command:
+          - /clair2.0.1/clair -config /config/config.yaml
           image: vmware/clair-photon:v2.0.1-v1.4.0
           imagePullPolicy: IfNotPresent
-          name: clair
           ports:
           - containerPort: 6060
             protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: '200m'
+              memory: 1Gi
+            requests:
+              cpu: '100m'
+              memory: 256Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
@@ -122,7 +130,13 @@ items:
           ports:
           - containerPort: 8080
             protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: '200m'
+              memory: 1Gi
+            requests:
+              cpu: '100m'
+              memory: 256Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
@@ -217,7 +231,13 @@ items:
           ports:
           - containerPort: 8080
             protocol: TCP
-          resources: {}
+          resources:
+            limits:
+              cpu: '200m'
+              memory: 1Gi
+            requests:
+              cpu: '100m'
+              memory: 256Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
@@ -342,8 +362,11 @@ items:
             successThreshold: 1
             timeoutSeconds: 3
           resources:
+            limits:
+              cpu: '200m'
+              memory: 1Gi
             requests:
-              cpu: 100m
+              cpu: '100m'
               memory: 256Mi
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
