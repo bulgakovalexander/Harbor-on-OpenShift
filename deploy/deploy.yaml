@@ -43,7 +43,7 @@ items:
           - -config
           - /config/config.yaml
           command:
-          - /clair2.0.1/clair -config /config/config.yaml
+          - /clair2.0.1/clair
           image: vmware/clair-photon:v2.0.1-v1.4.0
           imagePullPolicy: IfNotPresent
           ports:
