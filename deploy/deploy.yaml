@@ -120,7 +120,7 @@ items:
           - name: GODEBUG
             value: netdns=cgo
           - name: ADMINSERVER_URL
-            value: http://harbor-harbor-adminserver
+            value: http://harbor-harbor-adminserver-blockchain-x5-vostok.tos.alfaintra.net
           envFrom:
           - secretRef:
               name: harbor-harbor-jobservice
@@ -133,7 +133,7 @@ items:
           resources:
             limits:
               cpu: '200m'
-              memory: 1Gi
+              memory: 512Mi
             requests:
               cpu: '100m'
               memory: 256Mi
@@ -222,7 +222,7 @@ items:
           - name: ENABLE_HARBOR_SCAN_ON_PUSH
             value: "1"
           - name: ADMINSERVER_URL
-            value: http://harbor-harbor-adminserver
+            value: http://harbor-harbor-adminserver-blockchain-x5-vostok.tos.alfaintra.net
           - name: CLAIR_DB_HOST
             value: harbor-harbor-clair-pg
           image: vmware/harbor-ui:v1.4.0

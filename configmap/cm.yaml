@@ -6,7 +6,7 @@ items:
     AUTH_MODE: db_auth
     CFG_EXPIRATION: "5"
     CLAIR_DB: clair
-    CLAIR_DB_HOST: harbor-postgresql
+    CLAIR_DB_HOST: harbor-postgresql.blockchain-x5-vostok
     CLAIR_DB_PASSWORD: not-a-secure-password
     CLAIR_DB_PORT: "5432"
     CLAIR_DB_USERNAME: clair
@@ -38,7 +38,7 @@ items:
     MYSQL_USR: root
     PROJECT_CREATION_RESTRICTION: everyone
     REGISTRY_STORAGE_PROVIDER_NAME: filesystem
-    REGISTRY_URL: http://harbor-harbor-registry-blockchain-x5-vostok.tos.alfaintra.net
+    REGISTRY_URL: http://harbor-harbor-registry:5000
     RESET: "false"
     SELF_REGISTRATION: "on"
     TOKEN_EXPIRATION: "30"
@@ -68,7 +68,7 @@ items:
         database:
           type: pgsql
           options:
-            source: "postgresql://clair:not-a-secure-password@harbor-postgresql:5432/clair?sslmode=disable"
+            source: "postgresql://clair:not-a-secure-password@harbor-postgresql.blockchain-x5-vostok:5432/clair?sslmode=disable"
             # Number of elements kept in the cache
             # Values unlikely to change (e.g. namespaces) are cached in order to save prevent needless roundtrips to the database.
             cachesize: 16384
