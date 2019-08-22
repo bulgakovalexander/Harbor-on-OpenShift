@@ -11,13 +11,9 @@ items:
       release: harbor
     name: harbor-harbor-registry
   spec:
-    host: harbor.cloud.prd.asiainfo.com
-    path: /v2
+    host: registry-blockchain-x5-vostok.tos.alfaintra.net
     port:
       targetPort: 5000
-    tls:
-      insecureEdgeTerminationPolicy: Allow
-      termination: edge
     to:
       kind: Service
       name: harbor-harbor-registry
@@ -34,12 +30,9 @@ items:
       release: harbor
     name: harbor-harbor-ui
   spec:
-    host: harbor.cloud.prd.asiainfo.com
+    host: harbor-blockchain-x5-vostok.tos.alfaintra.net
     port:
       targetPort: 8080
-    tls:
-      insecureEdgeTerminationPolicy: Allow
-      termination: edge
     to:
       kind: Service
       name: harbor-harbor-ui

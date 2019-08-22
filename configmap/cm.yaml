@@ -18,7 +18,7 @@ items:
     EMAIL_PORT: "25"
     EMAIL_SSL: "false"
     EMAIL_USR: sample_admin@mydomain.com
-    EXT_ENDPOINT: http://harbor-blockchain-x5-vostok.tos.alfaintra.net
+    EXT_ENDPOINT: registry-blockchain-x5-vostok.tos.alfaintra.net:80
     GODEBUG: netdns=cgo
     IMAGE_STORE_PATH: /
     JOBSERVICE_URL: http://harbor-harbor-jobservice
@@ -30,7 +30,7 @@ items:
     LDAP_UID: uid
     LDAP_URL: ldaps://ldapserver
     LDAP_VERIFY_CERT: "True"
-    LOG_LEVEL: info
+    LOG_LEVEL: debug
     MAX_JOB_WORKERS: "3"
     MYSQL_DATABASE: registry
     MYSQL_HOST: harbor-harbor-mysql
@@ -42,7 +42,7 @@ items:
     RESET: "false"
     SELF_REGISTRATION: "on"
     TOKEN_EXPIRATION: "30"
-    TOKEN_SERVICE_URL: http://harbor-blockchain-x5-vostok.tos.alfaintra.net/service/service/token
+    TOKEN_SERVICE_URL: http://harbor-blockchain-x5-vostok.tos.alfaintra.net/service/token
     UAA_CLIENTID: ""
     UAA_CLIENTSECRET: ""
     UAA_ENDPOINT: ""
@@ -87,7 +87,7 @@ items:
           attempts: 3
           renotifyinterval: 2h
           http:
-            endpoint: "http://harbor-blockchain-x5-vostok.tos.alfaintra.net/service/notifications/service/notifications/clair"
+            endpoint: "http://harbor-blockchain-x5-vostok.tos.alfaintra.net/service/notifications/clair"
   kind: ConfigMap
   metadata:
     creationTimestamp: null
@@ -120,7 +120,7 @@ items:
     config.yml: |
       version: 0.1
       log:
-        level: info
+        level: debug
         fields:
           service: registry
       storage:
@@ -145,7 +145,6 @@ items:
           realm: "http://harbor-blockchain-x5-vostok.tos.alfaintra.net/service/token"
           rootcertbundle: /etc/registry/root.crt
           service: harbor-registry
-
       notifications:
         endpoints:
           - name: harbor
