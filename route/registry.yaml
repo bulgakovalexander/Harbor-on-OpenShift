@@ -1,0 +1,13 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: harbor
+  name: harbor-harbor-registry
+spec:
+  host: registry-blockchain-x5-vostok.tos.alfaintra.net
+  port:
+    targetPort: 5000
+  to:
+    kind: Service
+    name: harbor-harbor-registry
